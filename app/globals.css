@@ -24,3 +24,183 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+/* Orbit Rotation Animation */
+@keyframes rotateOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Orbit speeds */
+.animate-orbit {
+  animation: rotateOrbit 12s linear infinite;
+}
+
+.animate-orbit-slow {
+  animation: rotateOrbit 20s linear infinite;
+}
+
+.animate-orbit-fast {
+  animation: rotateOrbit 8s linear infinite;
+}
+
+
+
+
+/* slider */
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background-color:black;
+  padding: 5px 0;
+  font-size: 1.2rem;
+  /* font-weight: 700; */
+  color: #ffffff;
+  position: relative;
+  margin-top: 0;
+  white-space: nowrap;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.marquee-track {
+  display: flex;
+  animation: scroll-marquee 6s linear infinite;
+}
+
+
+.marquee-content {
+  display: flex;
+}
+
+.marquee-content span {
+  padding: 0 0.4rem;
+  display: inline-block;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+.social-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.social-icon {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 4px 0;
+  text-align: center;
+  font-size: 18px;
+  transition: transform 0.6s ease, background-color 0.3s;
+  width: 35px;
+  border-radius: 8px 0 0 8px;
+}
+
+.social-icon:hover {
+  transform: translateX(-10px);
+}
+
+/* Optional hover colors for each platform */
+.instagram:hover { background-color: #e1306c; }
+.facebook:hover  { background-color: #3b5998; }
+.twitter:hover   { background-color: #1da1f2; }
+.linkedin:hover  { background-color: #0077b5; }
+.youtube:hover   { background-color: #ff0000; }
+.whatsapp:hover  { background-color: #25d366; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 103px;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: all 0.3s ease;
+  z-index: 999;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+  .scroll-to-top-btn {
+    bottom: 102px;
+    right: 5;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .whatsapp-float {
+ 
+    right: 5;
+ 
+  }
+}
