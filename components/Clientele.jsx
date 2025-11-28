@@ -20,12 +20,12 @@ export default function Clientele() {
     <section className="relative  bg-gradient-to-b from-[#f0f8ff] via-white to-[#f5fbff] overflow-hidden">
     
 
-      <div className="w-full mx-auto px-4 py-8 text-center">
-        <h2 className="mb-4 font-bold text-2xl md:text-4xl cinzel tracking-wide">
+      <div className="w-full mx-auto px-4 py-7 text-center">
+        <h2 className="mb-4 font-cinzel font-bold text-2xl md:text-4xl cinzel tracking-wide">
           Our Premium Clients
         </h2>
 
-              <div className="mx-auto mb-10  h-1 w-14 sm:w-16 bg-blue-600"></div>
+              <div className="mx-auto  mb-2  h-1 w-14 sm:w-16 bg-blue-600"></div>
 
         <Swiper
           modules={[Autoplay]}

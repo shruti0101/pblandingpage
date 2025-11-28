@@ -26,7 +26,7 @@ export default function MarketingServices() {
     <section className="w-full bg-[#F9FBFF] py-10 ">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Title */}
-        <h2 className="text-3xl mb-5 md:text-5xl font-bold text-center text-[#2548BD]">
+        <h2 className="text-3xl font-cinzel mb-5 md:text-5xl font-bold text-center text-[#2548BD]">
           Our Marketing Services
         </h2>
         <div className="hidden md:block mx-auto mt-4 h-1 w-16 bg-blue-600"></div>

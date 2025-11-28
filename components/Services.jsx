@@ -49,7 +49,7 @@ const Services = () => {
 
       {/* Content */}
       <div className="relative max-w-6xl mx-auto z-10">
-        <h1 className="text-5xl  tracking-wide  font-bold text-white mb-13 text-center">
+        <h1 className="text-5xl font-cinzel  tracking-wide  font-bold text-white mb-13 text-center">
           Our Services
         </h1>
 

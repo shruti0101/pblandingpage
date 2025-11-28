@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
           {/* Left Content */}
           <div>
             {/* Heading */}
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            <h2 className="text-4xl font-cinzel md:text-5xl font-extrabold text-gray-900">
               Why Choose <span className="text-blue-600">Us?</span>
             </h2>
 

@@ -52,7 +52,7 @@ export default function CardCarousel() {
 
 
   <div className="w-full relative max-w-7xl  mx-auto mb-5 px-10 md:px-0">
-    <h2 className="text-3xl   text-center leading-tight my-6 sm:text-4xl md:text-5xl font-extrabold mb-3">
+    <h2 className="text-3xl font-cinzel  text-center leading-tight my-6 sm:text-4xl md:text-5xl font-extrabold mb-3">
       Our Social Media <br /> Management Projects
     </h2>
 

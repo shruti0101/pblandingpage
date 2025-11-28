@@ -53,7 +53,7 @@ export default function Process() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-14">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900">
+          <h1 className="text-3xl font-cinzel sm:text-5xl font-extrabold text-gray-900">
             Our Process
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 mb-4 rounded"></div>

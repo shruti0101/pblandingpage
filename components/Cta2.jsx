@@ -54,7 +54,7 @@ function Cta2() {
 
           {/* Form */}
           <div className="order-2 lg:order-none">
-            <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-center lg:text-left">
+            <h2 className="mb-4 font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-center lg:text-left">
               Coffee or Beer? It's on us!
             </h2>
             <p className="text-gray-300 mb-6 text-sm sm:text-base text-center lg:text-left">

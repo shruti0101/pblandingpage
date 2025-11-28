@@ -54,10 +54,10 @@ export default function HeroSection() {
       id="bg"
       className="relative bg-[#07192F] flex items-center text-white min-h-screen"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="w-full mx-auto px-4 sm:px-12 py-12 sm:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Content */}
         <div className="text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <h1 className="text-3xl font-cinzel sm:text-4xl lg:text-5xl font-bold leading-tight">
             Performance Marketing Partner That Drives Revenue
           </h1>
           <p className="mt-2 text-base text-white sm:text-lg leading-relaxed">
@@ -77,7 +77,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Form */}
-        <div className="border border-gray-400 p-3 sm:p-8 rounded-2xl shadow-lg w-full">
+        <div className="border font-cinzel border-gray-400 p-3 sm:p-8 rounded-2xl shadow-lg w-full">
           <h3 className="text-white text-lg sm:text-2xl font-semibold mb-4 sm:mb-6 text-center lg:text-left">
             Coffee or Beer? It's on us!
           </h3>

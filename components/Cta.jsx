@@ -7,7 +7,7 @@ export default function ContactSection() {
     <section className="bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#312e81] text-black md:py-8 md:px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-6 border border-gray-700 p-6 rounded-lg relative z-10">
         {/* Left Text */}
-        <div className="text-center md:ml-20 text-white md:text-start text-lg md:text-2xl font-medium max-w-xl">
+        <div className="text-center font-cinzel md:ml-20 text-white md:text-start text-lg md:text-2xl font-medium max-w-xl">
           Har Click Mein Growth — Let’s Advertise Smartly.
         </div>
 

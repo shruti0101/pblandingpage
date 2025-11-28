@@ -1,16 +1,20 @@
-
-import { Bebas_Neue } from "next/font/google"; 
+import { Bebas_Neue, Cinzel } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 import Topbar from "@/components/Topbar";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-bebas-neue",
+});
+
+const cinzel = Cinzel({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-cinzel",
 });
 
 export const metadata = {
@@ -33,18 +37,14 @@ export default function RootLayout({ children }) {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-5CHVJPVS');`}
         </Script>
-
-     
-        
       </head>
 
-      <body
-        className={` ${bebasNeue.variable} antialiased`}
-      >
-<Topbar></Topbar>
+      <body className={`${bebasNeue.variable} ${cinzel.variable} antialiased`}>
+        <Topbar />
         <Navbar />
         {children}
-  <Footer />
+        <Footer />
+
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5CHVJPVS"

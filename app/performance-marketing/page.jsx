@@ -8,13 +8,88 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Project from '@/components/Project';
-import Newpopup from '@/components/Newpopup';
-import { useState } from 'react';
+import axios from "axios";
+import { useState,useRef } from 'react';
 import Whatsapp from '@/components/Whatsapp';
 import Clientele from '@/components/Clientele';
 const page = () => {
 
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+
+
+
+
+  const formRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  // form State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+
+
+
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+    setLoading(true);
+    try {
+      const formData = {
+        platform: "Promozionebranding Landing page",
+        platformEmail: "inquiry.promozione@gmail.com",
+        name,
+        email,
+        place: "N/A",
+        phone,
+        message,
+      };
+
+      const { data } = await axios.post(
+        "https://brandbnalo.com/api/form/add",
+        formData
+      );
+
+      if (data?.success) {
+                
+        setLoading(false);
+        setStatus("✅ Message sent successfully!");
+        setName("");
+        setEmail("");
+   
+        setPhone("");
+        setMessage("");
+
+
+      } else {
+        setLoading(false);
+        setStatus("❌ Something went wrong. Please try again.");
+      }
+      console.log(formData);
+    } catch (error) {
+      console.log(error);
+      setStatus("❌ " + error.message);
+    } finally {
+      setLoading(false);
+    }
+
+  };
+
+ 
+
+
+
+
+
+
+
+
+
 const testimonials = [
 
 
@@ -62,12 +137,12 @@ const testimonials = [
     {/* case studies */}
 
 <div className="bg-[#e9f6ff] px-4 py-6">
-  <h2 className="text-3xl font-semibold text-center mb-4">
+  <h2 className="text-3xl font-cinzel font-semibold text-center mb-4">
     Case Studies
   </h2>
 
   <Swiper
-    modules={[Pagination, Autoplay]}
+    modules={[ Autoplay]}
     slidesPerView={1}
     spaceBetween={20}
     pagination={{ clickable: true }}
@@ -277,15 +352,117 @@ const testimonials = [
 </div>
 
 
+
+
+{/* form */}
+
+<div className="px-5 mt-9 relative w-full max-w-sm mx-auto rounded-3xl overflow-hidden shadow-xl
+                bg-gradient-to-br from-[#EAF6FF] via-[#F5FAFF] to-[#EEF2FF] text-slate-700">
+
+  <div className="relative p-5 sm:p-8 z-10">
+
+    {/* Heading */}
+    <h2 className="text-center font-cinzel text-xl sm:text-2xl font-semibold tracking-wide text-slate-700">
+      Get In Touch With Us
+    </h2>
+    <div className="w-20 h-[3px] bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] mx-auto mt-2 mb-6 rounded-full"></div>
+
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+
+      {/* Input Field */}
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        className="w-full px-4 py-3 text-sm sm:text-base bg-white border border-slate-200 rounded-xl
+                   text-slate-700 placeholder-slate-400 focus:ring-2 focus:ring-[#00C9FF]
+                   focus:outline-none transition shadow-sm"
+        required
+      />
+
+      <input
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        type="tel"
+        name="phone"
+        maxLength={10}
+        pattern="[0-9]{10}"
+        placeholder="Phone Number"
+        className="w-full px-4 py-3 text-sm sm:text-base bg-white border border-slate-200 rounded-xl
+                   text-slate-700 placeholder-slate-400 focus:ring-2 focus:ring-[#00C9FF]
+                   focus:outline-none transition shadow-sm"
+        required
+      />
+
+      <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        className="w-full px-4 py-3 text-sm sm:text-base bg-white border border-slate-200 rounded-xl
+                   text-slate-700 placeholder-slate-400 focus:ring-2 focus:ring-[#00C9FF]
+                   focus:outline-none transition shadow-sm"
+        required
+      />
+
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        name="message"
+        placeholder="Your Message"
+        className="w-full px-4 py-3 h-28 text-sm sm:text-base bg-white border border-slate-200 rounded-xl
+                   text-slate-700 placeholder-slate-400 focus:ring-2 focus:ring-[#00C9FF]
+                   focus:outline-none transition resize-none shadow-sm"
+        required
+      />
+
+      {/* Button */}
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#00C9FF] to-[#0077E6]
+                   hover:scale-[1.02] active:scale-95 transition-all font-semibold text-white shadow-lg"
+      >
+        {loading ? "Sending..." : "Send Message"}
+      </button>
+
+      {/* Status Message */}
+      {status && (
+        <div
+          className={`text-center text-sm font-medium py-2 px-3 rounded-xl mt-2 ${
+            status.startsWith("✅")
+              ? "bg-green-100 text-green-800"
+              : status.startsWith("❌")
+              ? "bg-red-100 text-red-800"
+              : "bg-yellow-100 text-yellow-800"
+          }`}
+        >
+          {status}
+        </div>
+      )}
+    </form>
+  </div>
+</div>
+
+
+
+
+{/* project cards */}
+
+<Project></Project>
+
 {/* industy */}
    <section className="w-full flex flex-col gap-4 bg-stone-100 pb-3">
 
       {/* Heading */}
       <div className="text-center py-2">
-        <h2 className="text-[#155DFC] text-3xl font-semibold ">
+        <h2 className="text-[#155DFC] font-cinzel text-3xl font-semibold ">
           Industry Specific
         </h2>
-        <h3 className="text-[#155DFC] text-3xl ">
+        <h3 className="text-[#155DFC]  font-cinzel text-3xl ">
           Expertise
         </h3>
       </div>
@@ -460,10 +637,10 @@ const testimonials = [
 
   {/* Heading */}
   <div className="text-center py-6">
-    <h2 className="text-[#155DFC] text-2xl font-bold tracking-wide">
+    <h2 className="text-[#155DFC] font-cinzel text-2xl font-bold tracking-wide">
       360° Performance
     </h2>
-    <h3 className="text-[#155DFC] text-2xl font-bold">
+    <h3 className="text-[#155DFC] font-cinzel text-2xl font-bold">
       Solutions
     </h3>
   </div>
@@ -565,7 +742,7 @@ const testimonials = [
   {/* Content Wrapper */}
   <div className="relative z-10">
     <div className="text-center mb-6">
-      <h2 className="text-white text-2xl font-semibold">
+      <h2 className="text-white  font-cinzel text-2xl font-semibold">
         What Our Clients Say
       </h2>
     </div>
@@ -623,9 +800,7 @@ const testimonials = [
 
 
 
-{/* project cards */}
 
-<Project></Project>
 
 
 
@@ -650,7 +825,7 @@ const testimonials = [
 
           {/* CALL BUTTON */}
           <a href="tel:+917221848327"
-            className="w-1/2 text-center py-3 text-base font-semibold text-white bg-blue-700 hover:bg-blue-700 transition"
+            className="w-1/2 font-cinzel text-center py-3 text-base font-semibold text-white bg-blue-700 hover:bg-blue-700 transition"
           >
             Call us
           </a>
@@ -658,7 +833,7 @@ const testimonials = [
           {/* ENQUIRE BUTTON */}
           <button
            onClick={() => setIsFormOpen(true)}
-            className="w-1/2 cursor-pointer text-base text-center py-3 font-semibold text-black bg-white hover:bg-gray-100 border-l border-gray-300 transition"
+            className="w-1/2  font-cinzel cursor-pointer text-base text-center py-3 font-semibold text-black bg-white hover:bg-gray-100 border-l border-gray-300 transition"
           >
             Enquire now
           </button>

@@ -45,7 +45,7 @@ export default function CardCarousel() {
   return (
     <div className="w-full relative mx-auto  my-9 px-9 ">
       {/* Heading */}
-      <h2 className="text-3xl text-center leading-tight md:my-5 sm:text-4xl md:text-6xl font-extrabold mb-3">
+      <h2 className="text-3xl  font-cinzel text-center leading-tight md:my-5 sm:text-4xl md:text-6xl font-extrabold mb-3">
         Our Projects
       </h2>
 

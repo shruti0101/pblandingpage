@@ -22,7 +22,7 @@ const Orbit = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-5 py-11 md:py-0">
           {/* Section Title */}
-          <h2 className="mt-1 font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-2 text-[#2548BD]">
+          <h2 className="mt-1 font-cinzel font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-2 text-[#2548BD]">
             About Us
           </h2>
           <div className="mx-auto mb-6 mt-3 h-1 w-12 sm:w-16 bg-blue-600"></div>

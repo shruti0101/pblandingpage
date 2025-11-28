@@ -62,7 +62,7 @@ export default function FaqSection() {
 
         {/* Right FAQ Section */}
         <div>
-          <h2 className="text-3xl md:text-4xl mb-6 font-bold text-blue-600 text-center md:text-left">
+          <h2 className="text-3xl font-cinzel md:text-4xl mb-6 font-bold text-blue-600 text-center md:text-left">
             Frequently Asked Questions
           </h2>
 
