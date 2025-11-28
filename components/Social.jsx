@@ -6,7 +6,7 @@ const Social = () => {
       <div className="social-sidebar flex flex-col gap-4 fixed top-1/3  z-50">
         {/* Instagram */}
         <a
-          href="https://www.instagram.com/promozione.branding/"
+          href="https://www.instagram.com/promozionebranding/"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon instagram p-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition shadow-lg"

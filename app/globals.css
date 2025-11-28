@@ -4,12 +4,10 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-bebas: var(--font-bebas-neue); /* Bebas Neue */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,9 +20,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-bebas) /* ✅ Bebas Neue globally */
 }
 
+/* Optional: keep headings using Bebas Neue as well */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bebas)
+}
 
 
 /* Orbit Rotation Animation */
@@ -141,10 +143,10 @@ body {
 
 
 
-
+/* 
 .scroll-to-top-btn {
   position: fixed;
-  bottom: 103px;
+  bottom: 119px;
   right: 20px;
   opacity: 0;
   visibility: hidden;
@@ -160,15 +162,15 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+} */
 
-.scroll-to-top-btn.show {
+/* .scroll-to-top-btn.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-}
+} */
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .scroll-to-top-btn {
     bottom: 102px;
     right: 5;
@@ -176,13 +178,13 @@ body {
     height: 40px;
     font-size: 20px;
   }
-}
+} */
 
 
 
 .whatsapp-float {
   position: fixed;
-  bottom: 40px;
+  bottom: 100px;
   right: 20px;
   background-color: #25D366;
   color: white;
@@ -201,6 +203,35 @@ body {
   .whatsapp-float {
  
     right: 5;
+    bottom: 120px;
+ 
+  }
+}
+
+
+
+.call-float {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-color: #e7591c;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+.call-float:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .call-float {
+ 
+    right: 5;
+    bottom: 50px;
  
   }
 }

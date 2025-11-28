@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+
+
+
+
+
+
+
+
+  const images = [
+    { src: "/project1.webp", link: "https://matrixtissues.com/" },
+    { src: "/project2.webp", link: "http://sparvitsanitaryware.com/" },
+    { src: "/project3.webp", link: "https://sbsmachinery.in/" },
+    { src: "/project4.webp", link: "https://cachintanagrawal.com/" },
+    { src: "/project5.webp", link: "https://jsrglobalsales.com/" },
+    { src: "/project6.webp", link: "https://exoticcrate.com/" },
+  ];

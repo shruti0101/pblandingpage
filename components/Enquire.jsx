@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 export default function PopupForm({ isOpen, onClose }) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,7 +45,7 @@ export default function PopupForm({ isOpen, onClose }) {
 
     try {
       const res = await fetch(
-        "https://formsubmit.co/ajax/info@promozionebranding.com",
+        "https://formsubmit.co/ajax/shubham@promozionebranding.com",
         {
           method: "POST",
           headers: {
@@ -66,11 +67,10 @@ export default function PopupForm({ isOpen, onClose }) {
           description: "",
         });
 
-        // keep message for 2s, then close
+        // Redirect to Thank You page
         setTimeout(() => {
-          setStatus("");
-          onClose();
-        }, 2000);
+          router.push("/thank-you");
+        }, 1000); // wait 1 second to show success message
       } else {
         setStatus("❌ Something went wrong. Please try again.");
       }
@@ -138,18 +138,16 @@ export default function PopupForm({ isOpen, onClose }) {
               required
             >
               <option value="">Project Type</option>
-              <option>Commercial Buildings</option>
-              <option>Educational Institutions</option>
-              <option>Healthcare Facilities</option>
+              <option>Commercial </option>
+              <option>Educational </option>
+              <option>Healthcare </option>
               <option>Government Projects</option>
               <option>Hospitality Sector</option>
               <option>Retail & Malls</option>
               <option>Industrial & Warehouses</option>
               <option>Transportation Hubs</option>
-              <option>Recreational & Public Spaces</option>
               <option>Residential Projects</option>
-              <option>Religious & Cultural Places</option>
-              <option>Automobile Showrooms & Service Centers</option>
+              <option>Religious & Cultural </option>
               <option>Others</option>
             </select>
 
@@ -172,6 +170,8 @@ export default function PopupForm({ isOpen, onClose }) {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Phone number"
+              maxLength={10}
+              pattern="[0-9]{10}"
               className="flex-1 px-3 py-2 border rounded-r-md bg-stone-100"
               required
             />

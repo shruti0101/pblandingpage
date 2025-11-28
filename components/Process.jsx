@@ -1,154 +1,105 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
-const Process = () => {
-  const steps = [
-    {
-      image: "/approach/image1.jpg",
-      id: 1,
-      title: "Research & Discovery",
-      desc: "We begin by understanding your business inside out — your brand, values, audience, competitors, and unique strengths. By asking the right questions and gathering insights, we uncover opportunities and build a clear, data-driven roadmap. This ensures every strategy aligns with your goals, resonates with your audience, and drives measurable success.",
-    },
+const steps = [
+  {
+    id: 1,
+    title: "Research & Discovery",
+    desc: `We begin by diving deep into understanding your business ecosystem — your brand’s core identity, values, target audience, and market competitors. 
+    Through thorough research and insightful discussions, we identify your unique selling points and discover untapped opportunities. 
+    This phase helps us establish a strong foundation by analyzing customer behavior, market trends, and key performance indicators. 
+    The result is a clear, data-backed strategy that drives every decision moving forward.`,
+  },
+  {
+    id: 2,
+    title: "Collaborative Planning",
+    desc: `Once the research phase is complete, we collaborate closely with your team to translate findings into actionable strategies. 
+    This includes setting clear objectives, defining success metrics, and mapping out timelines for seamless execution. 
+    We create detailed wireframes or mockups that help you visualize the structure and flow of your project before development begins. 
+    Every decision is made collaboratively — ensuring the outcome aligns perfectly with your brand voice and long-term business vision.`,
+  },
+  {
+    id: 3,
+    title: "Design & Build",
+    desc: `With the strategy and plan finalized, our creative and technical experts come together to bring ideas to life. 
+    Our design team focuses on aesthetics, usability, and brand consistency — crafting interfaces that not only look great but also perform flawlessly. 
+    Meanwhile, our developers ensure functionality, scalability, and speed are top-notch. 
+    From responsive layouts to robust backend systems, every component is built with precision, ensuring a seamless experience across all devices.`,
+  },
+  {
+    id: 4,
+    title: "Live Reporting",
+    desc: `Transparency is at the heart of our process. Once your project goes live, we set up interactive dashboards and performance tracking tools to provide you with real-time insights. 
+    From user engagement metrics to conversion trends, every key indicator is monitored closely. 
+    You’ll have 24/7 access to reports that empower smarter business decisions, highlight growth opportunities, and ensure accountability at every stage.`,
+  },
+  {
+    id: 5,
+    title: "Return on Investment",
+    desc: `Our ultimate goal is to deliver measurable, long-term results. 
+    We continuously evaluate campaign performance and fine-tune strategies for maximum effectiveness. 
+    Whether it’s boosting lead generation, increasing conversions, or enhancing customer retention, every improvement contributes directly to your bottom line. 
+    This iterative optimization process ensures your investment continues to deliver value — creating sustained growth and a powerful return on investment.`,
+  },
+];
 
-    {
-      image: "/approach/image2.webp",
-      id: 2,
-      title: "Collaborative Planning",
-      desc: "After finalizing the strategy, we create detailed mock-ups to visualize the project before execution. With your feedback at every step, we refine layouts, content, and functionality to ensure everything aligns with your brand and goals — giving you a clear preview and confidence in the final outcome.",
-    },
-    {
-      image: "/approach/image3.webp",
-      id: 3,
-      title: "Design & Build",
-      desc: "With your approval, we turn ideas into reality — blending creative design, smooth functionality, and strong performance. Through regular updates and feedback, we refine every detail to deliver a polished, high-quality result that looks great and drives real business impact.",
-    },
-    {
-      image: "/approach/image4.webp",
-      id: 4,
-      title: "Live Reporting",
-      desc: "Our 24/7 dashboards give you instant access to key metrics — from traffic and engagement to sales growth. Easy to use and always up to date, they provide clear insights to guide smarter decisions and keep you ahead of the competition.",
-    },
-    {
-      image: "/approach/image5.webp",
-      id: 5,
-      title: "Return on Investment",
-      desc: "We focus on delivering measurable results — from increased sales and quality leads to stronger ROI. Beyond execution, we continuously monitor, refine, and optimize strategies to sustain and accelerate your business growth.We track every outcome closely, making sure your investment works harder.As your brand presence grows, so does your customer base and revenue.Our goal: long-term success, not just short-term wins.",
-    },
-  ];
-
+export default function Process() {
   const [activeId, setActiveId] = useState(1);
+  const activeStep = steps.find((step) => step.id === activeId);
 
   return (
-    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-6">
-      {/* Background Text */}
-      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none z-0">
-        <h1 className="text-[60px] lg:text-[90px] font-extrabold tracking-widest bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text opacity-[0.08] whitespace-nowrap">
-          OUR PROCESS
-        </h1>
-      </div>
+    <section className="bg-gray-100 py-10 sm:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Heading */}
+        <div className="text-center mb-10 sm:mb-14">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900">
+            Our Process
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 mb-4 rounded"></div>
+          <p className="text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+            A comprehensive 5-step approach crafted to deliver measurable growth
+            and long-term success.
+          </p>
+        </div>
 
-      {/* Heading */}
-      <div className="text-center mb-10 relative z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">
-          Our Process
-        </h1>
-        <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 rounded"></div>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-          We created a 5-step process to ensure an excellent service for every
-          business we work with.
-        </p>
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center relative z-10">
-        {/* Text */}
-        <div className="w-full md:w-1/2">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeId}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.4 }}
+        {/* Steps Navigation */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-5 mb-8 sm:mb-10">
+          {steps.map((step) => (
+            <button
+              key={step.id}
+              onClick={() => setActiveId(step.id)}
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full border text-sm sm:text-base font-medium transition-all duration-200
+              ${
+                activeId === step.id
+                  ? "bg-blue-600 text-white border-blue-600 shadow-md scale-105"
+                  : "bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600"
+              }`}
             >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-indigo-600">
-                {steps[activeId - 1].title}
-              </h2>
-              <p className="text-gray-700  leading-relaxed text-sm sm:text-base">
-                {steps[activeId - 1].desc}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+              <span
+                className={`flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full ${
+                  activeId === step.id
+                    ? "bg-white text-blue-600"
+                    : "bg-blue-100 text-blue-700"
+                }`}
+              >
+                {step.id}
+              </span>
+              {step.title}
+            </button>
+          ))}
         </div>
 
-        {/* Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={steps[activeId - 1].image}
-              src={steps[activeId - 1].image}
-              alt={steps[activeId - 1].title}
-              className="rounded-xl max-w-full sm:max-w-md  h-auto object-cover"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-            />
-          </AnimatePresence>
+        {/* Active Step Content */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-10 shadow-md transition-all duration-300 hover:shadow-xl">
+          <h2 className="text-xl sm:text-3xl font-bold text-[#1C398E] mb-4 text-center sm:text-left">
+            {activeStep.title}
+          </h2>
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-lg whitespace-pre-line text-center sm:text-left">
+            {activeStep.desc}
+          </p>
         </div>
       </div>
-
-      {/* Timeline Navigation */}
-  <div className="flex flex-wrap justify-center  sm:gap-6 mt-5 sm:mt-14 relative z-10 px-2">
-  {steps.map((step) => (
-    <div
-      key={step.id}
-      className={`flex flex-col items-center w-1/5 xs:w-1/5 sm:w-auto cursor-pointer group transition ${
-        activeId === step.id
-          ? "scale-105"
-          : "opacity-75 hover:opacity-100"
-      }`}
-      onClick={() => setActiveId(step.id)}
-    >
-      {/* Thumbnail */}
-      <div
-        className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shadow-md border-2 transition ${
-          activeId === step.id
-            ? "border-transparent ring-2 ring-indigo-500"
-            : "border-gray-200"
-        }`}
-      >
-        <img
-          src={step.image}
-          alt={step.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Step Title */}
-      <p
-        className={`mt-2 text-[10px] xs:text-xs sm:text-sm font-medium text-center leading-tight transition ${
-          activeId === step.id ? "text-indigo-600" : "text-gray-600"
-        }`}
-      >
-        {step.title}
-      </p>
-
-      {/* Animated underline */}
-      {activeId === step.id && (
-        <motion.div
-          layoutId="activeStep"
-          className="h-[2px] sm:h-[3px] w-5 sm:w-8 bg-gradient-to-r from-blue-500 to-purple-500 mt-1 rounded-full"
-        />
-      )}
-    </div>
-  ))}
-</div>
-
     </section>
   );
-};
-
-export default Process;
+}

@@ -1,10 +1,11 @@
 'use client'
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
-
+import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 function Cta2() {
   const [showToast, setShowToast] = useState(false);
   const formRef = useRef();
+    const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +24,10 @@ function Cta2() {
       if (response.ok) {
         setShowToast(true);
         formRef.current.reset();
-        setTimeout(() => setShowToast(false), 3000);
+       setTimeout(() => {
+          router.push("/thank-you");
+        }, 1000);
+
       } else {
         alert("Something went wrong. Please try again.");
       }
@@ -39,19 +43,12 @@ function Cta2() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Image */}
           <div className="flex justify-center lg:justify-start order-1 lg:order-none">
-            <motion.img
-              src="/contactus.svg"
+            <Image
+              src="https://res.cloudinary.com/dzbkxqqo9/image/upload/v1762323988/contactus_he0ojr.svg"
               alt="CTA Graphic"
-              className="w-64 sm:w-80 md:w-[600px] lg:max-w-lg mx-auto"
-              animate={{
-                y: [0, -15, 0], // floating effect
-                rotate: [0, 2, -2, 0], // slight tilt
-              }}
-              transition={{
-                duration: 9,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              className="w-64 sm:w-80 md:w-[600px] lg:max-w-lg mx-auto animate-pulse"
+        width={300}
+        height={300}
             />
           </div>
 
@@ -81,6 +78,7 @@ function Cta2() {
                 type="text"
                 placeholder="Your name"
                 name="name"
+             
                 required
                 className="w-full rounded-md border border-white px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
@@ -95,7 +93,8 @@ function Cta2() {
                 type="tel"
                 placeholder="Phone number"
                 name="number"
-                maxLength="10"
+                maxLength={10}
+              pattern="[0-9]{10}"
                 required
                 className="w-full rounded-md border border-white px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
